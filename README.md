@@ -67,3 +67,6 @@ A camada de infraestrutura é responsável por dar o suporte as demais camadas. 
 - Application (Aplicação).
 - Domain (Domínio).
 - Infrastructure (Infraestrutura).
+
+
+- Camada de Domínio
