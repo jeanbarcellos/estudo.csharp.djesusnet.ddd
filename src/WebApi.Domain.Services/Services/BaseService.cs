@@ -9,7 +9,7 @@ namespace WebApi.Domain.Services.Services
     abstract public class BaseService<TEntity> : IBaseService<TEntity>
         where TEntity : BaseEntity
     {
-        private readonly IBaseRepository<TEntity> _repository;
+        protected readonly IBaseRepository<TEntity> _repository;
 
         protected BaseService(IBaseRepository<TEntity> repository)
         {

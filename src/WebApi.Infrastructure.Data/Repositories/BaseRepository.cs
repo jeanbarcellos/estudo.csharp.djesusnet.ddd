@@ -7,10 +7,10 @@ using WebApi.Domain.Entities;
 
 namespace WebApi.Infrastructure.Data.Repositories
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity>
+    abstract public class BaseRepository<TEntity> : IBaseRepository<TEntity>
         where TEntity : BaseEntity
     {
-        private readonly DbContext _context;
+        protected readonly DbContext _context;
 
         public BaseRepository(DbContext context)
         {
