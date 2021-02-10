@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\WebApi.Domain.Core\WebApi.Domain.Core.csproj" />
 	<ProjectReference Include="..\WebApi.Domain\WebApi.Domain.csproj" />
+	<ProjectReference Include="..\WebApi.Domain.Core\WebApi.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>
