@@ -14,7 +14,5 @@ namespace WebApi.Application.Interfaces
         void Update(ProductDTO productDTO);
 
         void Remove(ProductDTO productDTO);
-
-        void Dispose();
     }
 }

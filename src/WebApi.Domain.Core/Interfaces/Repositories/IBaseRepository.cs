@@ -10,12 +10,10 @@ namespace WebApi.Domain.Core.Interfaces.Repositories
 
         TEntity GetById(int id);
 
-        void Add(TEntity obj);
+        void Add(TEntity entity);
 
-        void Update(TEntity obj);
+        void Update(TEntity entity);
 
-        void Remove(TEntity obj);
-
-        void Dispose();
+        void Remove(TEntity entity);
     }
 }

@@ -14,7 +14,5 @@ namespace WebApi.Domain.Core.Interfaces.Services
         void Update(TEntity entity);
 
         void Remove(TEntity entity);
-
-        void Dispose();
     }
 }

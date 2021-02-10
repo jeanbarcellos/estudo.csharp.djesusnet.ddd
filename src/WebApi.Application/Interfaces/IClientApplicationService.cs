@@ -14,7 +14,5 @@ namespace WebApi.Application.Interfaces
         ClientDTO GetById(int id);
 
         IEnumerable<ClientDTO> GetAll();
-
-        void Dispose();
     }
 }

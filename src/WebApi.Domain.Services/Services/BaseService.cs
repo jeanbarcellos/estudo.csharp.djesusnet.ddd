@@ -6,7 +6,7 @@ using WebApi.Domain.Entities;
 
 namespace WebApi.Domain.Services.Services
 {
-    abstract public class BaseService<TEntity> : IDisposable, IBaseService<TEntity>
+    abstract public class BaseService<TEntity> : IBaseService<TEntity>
         where TEntity : BaseEntity
     {
         private readonly IBaseRepository<TEntity> _repository;
@@ -39,11 +39,6 @@ namespace WebApi.Domain.Services.Services
         public virtual void Remove(TEntity entity)
         {
             _repository.Remove(entity);
-        }
-
-        public virtual void Dispose()
-        {
-            _repository.Dispose();
         }
     }
 }
