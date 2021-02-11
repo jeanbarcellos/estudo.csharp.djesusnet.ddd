@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using WebApi.Infrastructure.Data.Contexts;
-using WebApi.Infrastructure.IoC;
+using WebApi.Infrastructure.CrossCutting.IoC;
 
 namespace WebApi.Service.Api
 {
@@ -34,9 +34,9 @@ namespace WebApi.Service.Api
             });
         }
 
-        // ConfigureContainer é onde você pode registrar coisas diretamente com o Autofac. 
-        // Isso é executado após ConfigureServices, portanto, as coisas aqui substituirão os registros feitos em ConfigureServices.
-        // Não construa o contêiner; isso é feito para você pela Factory.
+        // ConfigureContainer ï¿½ onde vocï¿½ pode registrar coisas diretamente com o Autofac.
+        // Isso ï¿½ executado apï¿½s ConfigureServices, portanto, as coisas aqui substituirï¿½o os registros feitos em ConfigureServices.
+        // Nï¿½o construa o contï¿½iner; isso ï¿½ feito para vocï¿½ pela Factory.
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new ModuleIoC());

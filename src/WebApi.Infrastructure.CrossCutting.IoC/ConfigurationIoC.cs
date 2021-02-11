@@ -8,7 +8,7 @@ using WebApi.Domain.Core.Interfaces.Services;
 using WebApi.Domain.Services.Services;
 using WebApi.Infrastructure.Data;
 
-namespace WebApi.Infrastructure.IoC
+namespace WebApi.Infrastructure.CrossCutting.IoC
 {
     public class ConfigurationIoC
     {

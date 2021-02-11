@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace WebApi.Infrastructure.IoC
+namespace WebApi.Infrastructure.CrossCutting.IoC
 {
     public class ModuleIoC : Module
     {

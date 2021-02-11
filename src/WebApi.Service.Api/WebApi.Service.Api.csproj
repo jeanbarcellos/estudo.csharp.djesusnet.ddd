@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebApi.Application\WebApi.Application.csproj" />
-    <ProjectReference Include="..\WebApi.Infrastructure.IoC\WebApi.Infrastructure.IoC.csproj" />
+    <ProjectReference Include="..\WebApi.Infrastructure.CrossCutting.IoC\WebApi.Infrastructure.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
 </Project>

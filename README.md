@@ -205,7 +205,7 @@ Executar o domando para aplicar as Migrações no banco de dados:
 dotnet ef --startup-project ../WebApi.Service.Api --project ./WebApi.Infrastructure.Data.csproj database update
 
 # Se estiver na raiz do projeto
-dotnet ef --startup-project src/WebApi.Service.Api/ --project src/WebApi.Infrastructure.Data/WebApi.Infrastructure.Data.csproj   database update
+dotnet ef --startup-project src/WebApi.Service.Api/ --project src/WebApi.Infrastructure.Data/WebApi.Infrastructure.Data.csproj database update
 ```
 
 <br>

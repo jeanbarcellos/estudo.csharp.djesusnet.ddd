@@ -21,9 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Application", "src\W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Infrastructure.Data", "src\WebApi.Infrastructure.Data\WebApi.Infrastructure.Data.csproj", "{6F7EF37F-60B5-4E1A-8119-D785601646CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Infrastructure.IoC", "src\WebApi.Infrastructure.IoC\WebApi.Infrastructure.IoC.csproj", "{CD7B9169-FF49-438D-A623-6B32DED708E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Infrastructure.CrossCutting.IoC", "src\WebApi.Infrastructure.IoC\WebApi.Infrastructure.CrossCutting.IoC.csproj", "{CD7B9169-FF49-438D-A623-6B32DED708E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Service.Api", "src\WebApi.Service.Api\WebApi.Service.Api.csproj", "{52FF9041-59D9-4D71-9734-0CBA6DE1413D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Service.Api", "src\WebApi.Service.Api\WebApi.Service.Api.csproj", "{52FF9041-59D9-4D71-9734-0CBA6DE1413D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
