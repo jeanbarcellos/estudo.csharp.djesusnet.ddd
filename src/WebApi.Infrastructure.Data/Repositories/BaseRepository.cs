@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using WebApi.Domain.Core.Interfaces.Repositories;
 using WebApi.Domain.Entities;
+using WebApi.Infrastructure.Data.Contexts;
 
 namespace WebApi.Infrastructure.Data.Repositories
 {
     abstract public class BaseRepository<TEntity> : IBaseRepository<TEntity>
         where TEntity : BaseEntity
     {
-        protected readonly DbContext _context;
+        protected readonly SqlContext _context;
 
-        public BaseRepository(DbContext context)
+        public BaseRepository(SqlContext context)
         {
             _context = context;
         }
