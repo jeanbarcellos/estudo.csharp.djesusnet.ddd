@@ -1,13 +1,12 @@
 ﻿using Autofac;
 using AutoMapper;
 using WebApi.Application.Interfaces;
-using WebApi.Application.Services;
 using WebApi.Application.Mappers;
+using WebApi.Application.Services;
 using WebApi.Domain.Core.Interfaces.Repositories;
 using WebApi.Domain.Core.Interfaces.Services;
 using WebApi.Domain.Services.Services;
 using WebApi.Infrastructure.Data;
-
 namespace WebApi.Infrastructure.IoC
 {
     public class ConfigurationIoC
