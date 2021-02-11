@@ -12,6 +12,11 @@ namespace WebApi.Service.Api.Controllers
     {
         private readonly IClientApplicationService _applicationService;
 
+        public ClientController(IClientApplicationService applicationService)
+        {
+            _applicationService = applicationService;
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
