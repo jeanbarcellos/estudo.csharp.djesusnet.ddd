@@ -17,6 +17,7 @@ namespace WebApi.Infrastructure.Data.Contexts
         public SqlContext(DbContextOptions<SqlContext> options) : base(options)
         {
         }
+
         public override int SaveChanges()
         {
             foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("CreatedAt") != null))
