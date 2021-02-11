@@ -132,6 +132,7 @@ A camada de infraestrutura é responsável por dar o suporte as demais camadas. 
     Pacotes:
 
     - `Npgsql.EntityFrameworkCore.PostgreSQL`
+    - `Microsoft.EntityFrameworkCore.Design`
 
   - Infrastructure.**IoC**:
 
@@ -184,20 +185,14 @@ A camada de infraestrutura é responsável por dar o suporte as demais camadas. 
 
 ### Criando as Migrations
 
-Acessar o diretório `WebApi.Services.Api`
-
-Instsalar o pacote:
-
-```
-dotnet add package Microsoft.EntityFrameworkCore.Design
-```
-
-Acessar o diretório `WebApi.Infrastructure.Data`
-
 Executar o comando para gerar as migrações:
 
-```
+```bash
+# Se estiver dentro do diretório src/WebApi.Infrastructure.Data
 dotnet ef --startup-project ../WebApi.Service.Api --project ./WebApi.Infrastructure.Data.csproj migrations add Initial
+
+# Se estiver na raiz do projeto
+dotnet ef --startup-project src/WebApi.Service.Api/ --project src/WebApi.Infrastructure.Data/WebApi.Infrastructure.Data.csproj  migrations add Initial
 ```
 
 - Observe que no comando definimos o projeto startup como sendo o projeto `WebApi.Services.Api` que contém a string de conexão e o projeto `WebApi.Infrastructure.Data` onde temos as referências ao `EntityFramework`.
@@ -205,8 +200,12 @@ dotnet ef --startup-project ../WebApi.Service.Api --project ./WebApi.Infrastruct
 
 Executar o domando para aplicar as Migrações no banco de dados:
 
-```
+```bash
+# Se estiver dentro do diretório src/WebApi.Infrastructure.Data
 dotnet ef --startup-project ../WebApi.Service.Api --project ./WebApi.Infrastructure.Data.csproj database update
+
+# Se estiver na raiz do projeto
+dotnet ef --startup-project src/WebApi.Service.Api/ --project src/WebApi.Infrastructure.Data/WebApi.Infrastructure.Data.csproj   database update
 ```
 
 <br>
