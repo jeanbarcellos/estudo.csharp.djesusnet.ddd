@@ -1,10 +1,12 @@
 using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using WebApi.Infrastructure.Data.Contexts;
 using WebApi.Infrastructure.IoC;
 
 namespace WebApi.Service.Api
@@ -20,8 +22,12 @@ namespace WebApi.Service.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Context
+            services.AddDbContext<SqlContext>(opts => opts.UseNpgsql(Configuration.GetConnectionString("Default")));
+            services.AddScoped<SqlContext>();
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi.Service.Api", Version = "v1" });
