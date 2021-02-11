@@ -34,9 +34,9 @@ namespace WebApi.Infrastructure.Data.Repositories
                 _context.Set<TEntity>().Add(obj);
                 _context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -47,9 +47,9 @@ namespace WebApi.Infrastructure.Data.Repositories
                 _context.Entry(obj).State = EntityState.Modified;
                 _context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -60,9 +60,9 @@ namespace WebApi.Infrastructure.Data.Repositories
                 _context.Set<TEntity>().Remove(obj);
                 _context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
