@@ -4,7 +4,7 @@ using WebApi.Domain.Entities;
 
 namespace WebApi.Domain.Services.Services
 {
-    class ProductService : BaseService<Product>, IProductService
+    public class ProductService : BaseService<Product>, IProductService
     {
         public ProductService(IProductRepository repository) : base(repository)
         {
