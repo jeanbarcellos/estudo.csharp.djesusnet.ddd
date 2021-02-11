@@ -7,6 +7,7 @@ using WebApi.Domain.Core.Interfaces.Repositories;
 using WebApi.Domain.Core.Interfaces.Services;
 using WebApi.Domain.Services.Services;
 using WebApi.Infrastructure.Data;
+
 namespace WebApi.Infrastructure.IoC
 {
     public class ConfigurationIoC
@@ -15,14 +16,17 @@ namespace WebApi.Infrastructure.IoC
         {
             #region IoC
 
-            builder.RegisterType<ClientApplicationService>().As<IClientApplicationService>();
-            builder.RegisterType<ProductApplicationService>().As<IProductApplicationService>();
+            // Infrastructure.Data
+            builder.RegisterType<ClientRepository>().As<IClientRepository>();
+            builder.RegisterType<ProductRepository>().As<IProductRepository>();
 
+            // Domain
             builder.RegisterType<ClientService>().As<IClientService>();
             builder.RegisterType<ProductService>().As<IProductService>();
 
-            builder.RegisterType<ClientRepository>().As<IClientRepository>();
-            builder.RegisterType<ProductRepository>().As<IProductRepository>();
+            // Application
+            builder.RegisterType<ClientApplicationService>().As<IClientApplicationService>();
+            builder.RegisterType<ProductApplicationService>().As<IProductApplicationService>();
 
             builder.Register(ctx => new MapperConfiguration(cfg =>
             {
@@ -33,8 +37,9 @@ namespace WebApi.Infrastructure.IoC
 
             }));
 
+            builder.Register(ctx => ctx.Resolve<MapperConfiguration>().CreateMapper()).As<IMapper>().InstancePerLifetimeScope();
+
             #endregion IoC
         }
-
     }
 }
