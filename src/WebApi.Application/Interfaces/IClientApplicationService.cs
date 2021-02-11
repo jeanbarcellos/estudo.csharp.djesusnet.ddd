@@ -3,16 +3,16 @@ using WebApi.Application.DTO;
 
 namespace WebApi.Application.Interfaces
 {
-    interface IClientApplicationService
+    public interface IClientApplicationService
     {
+        IEnumerable<ClientDTO> GetAll();
+
+        ClientDTO GetById(int id);
+
         void Add(ClientDTO clientDTO);
 
         void Update(ClientDTO clientDTO);
 
         void Remove(ClientDTO clientDTO);
-
-        ClientDTO GetById(int id);
-
-        IEnumerable<ClientDTO> GetAll();
     }
 }
