@@ -51,6 +51,7 @@ A camada de domínio que é responsável por ter um uma modelagem sólida e aqui
 A camada de infraestrutura é responsável por dar o suporte as demais camadas. Que atualmente é dividida por duas camadas com seus respectivos conteúdos:
 
 - Data:
+
   - Repositórios.
   - DataModel (Mapeamento).
   - Persistência de dados.
@@ -61,12 +62,161 @@ A camada de infraestrutura é responsável por dar o suporte as demais camadas. 
 
 ## Prático
 
-**Camadas**
+- **Domain**:
 
-- Presentation (Apresentação).
-- Application (Aplicação).
-- Domain (Domínio).
-- Infrastructure (Infraestrutura).
+  Domínio da aplicação:
 
+  Diretórios:
 
-- Camada de Domínio
+  - **Entities**
+
+  Sub:
+
+  - **Core**
+
+  - **Services**
+
+- **Application**:
+
+  Responsável por ...
+
+  Referências:
+
+  - `Domain.Core`
+
+  Pacotes:
+
+  - `AutoMapper.Extensions.Microsoft.DependencyInjection`
+
+  Diretórios:
+
+  - **DTO**
+
+  - **Interfaces**
+
+  - **Mappers**
+
+  - **Services**
+
+- **Service (API)**
+
+  Responsável pela ...
+
+  Referências:
+
+  - `Application`
+  - `Infrastructure.IoC`
+
+  Pacotes:
+
+  - `Autofac`
+  - `AutoFac.Extensions.DependencyInjection`
+  - `Microsoft.EntityFrameworkCore.Design`
+
+  Diretórios:
+
+  - Controllers
+
+- **Infrastructure**:
+
+  Responsável por ...
+
+  - Infrastructure.**Data**:
+
+    Responsável por ...
+
+    Referências:
+
+    - `Domain.Core`
+
+    Pacotes:
+
+    - `Npgsql.EntityFrameworkCore.PostgreSQL`
+
+  - Infrastructure.**IoC**:
+
+    Responsável por ...
+
+    Referências:
+
+    - `Application`
+    - `Domain.Core`
+    - `Infrastructure.Data`
+
+    Pacotes:
+
+    - `Autofac`
+
+    Arquivos:
+
+    - `Program.cs`
+
+      Configurar o host, usando `UseServiceProviderFactory(new AutofacServiceProviderFactory())`.
+
+      ```cs
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+      ```
+
+      Resultado:
+
+      ```cs
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+      ```
+
+- **Presentation**
+
+  Front-end React, Angular, etc ...
+
+<br>
+<br>
+<hr>
+
+### Criando as Migrations
+
+Acessar o diretório `WebApi.Services.Api`
+
+Instsalar o pacote:
+
+```
+dotnet add package Microsoft.EntityFrameworkCore.Design
+```
+
+Acessar o diretório `WebApi.Infrastructure.Data`
+
+Executar o comando para gerar as migrações:
+
+```
+dotnet ef --startup-project ../WebApi.Service.Api --project ./WebApi.Infrastructure.Data.csproj migrations add Initial
+```
+
+- Observe que no comando definimos o projeto startup como sendo o projeto `WebApi.Services.Api` que contém a string de conexão e o projeto `WebApi.Infrastructure.Data` onde temos as referências ao `EntityFramework`.
+- Tabmém foi preciso instalar o pacote `Microsoft.EntityFrameworkCore.Design` em `WebApi.Services.Api`
+
+Executar o domando para aplicar as Migrações no banco de dados:
+
+```
+dotnet ef --startup-project ../WebApi.Service.Api --project ./WebApi.Infrastructure.Data.csproj database update
+```
+
+<br>
+<br>
+<hr>
+
+### Executar o projeto
+
+Estando no diretório raiz
+
+```
+dotnet watch -p src/WebApi.Service.Api/WebApi.Service.Api.csproj run
+```
