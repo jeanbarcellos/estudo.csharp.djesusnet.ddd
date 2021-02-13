@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using AutoMapper;
 using WebApi.Application.Interfaces;
-using WebApi.Application.Mappers;
+using WebApi.Application.Mappings;
 using WebApi.Application.Services;
 using WebApi.Domain.Core.Interfaces.Repositories;
 using WebApi.Domain.Core.Interfaces.Services;

@@ -2,7 +2,7 @@
 using WebApi.Application.DTO;
 using WebApi.Domain.Entities;
 
-namespace WebApi.Application.Mappers
+namespace WebApi.Application.Mappings
 {
     public class ProductDTOToEntityMapping : Profile
     {
