@@ -72,9 +72,25 @@ A camada de infraestrutura é responsável por dar o suporte as demais camadas. 
 
   Sub:
 
-  - **Core**
+  - **Domain.Core**
 
-  - **Services**
+    Referências:
+
+    - `Domain`
+
+    Diretórios:
+
+    - **Interfaces**
+
+  - **Domain.Services**
+
+    Referências:
+
+    - `Domain.Core`
+
+    Diretórios
+
+    - **Services**
 
 - **Application**:
 
@@ -90,17 +106,17 @@ A camada de infraestrutura é responsável por dar o suporte as demais camadas. 
 
   Diretórios:
 
-  - **DTO**
+  - **DTO:** Objeto de Transferência de Dados, é um padrão de projeto de software usado para transferir dados entre subsistemas de um software. DTOs são frequentemente usados em conjunção com objetos de acesso a dados para obter dados de um banco de dados.
 
   - **Interfaces**
 
-  - **Mappers**
+  - **Mappings**
 
   - **Services**
 
 - **Service (API)**
 
-  Responsável pela ...
+  Responsável por ...
 
   Referências:
 
@@ -196,7 +212,7 @@ dotnet ef --startup-project src/WebApi.Service.Api/ --project src/WebApi.Infrast
 ```
 
 - Observe que no comando definimos o projeto startup como sendo o projeto `WebApi.Services.Api` que contém a string de conexão e o projeto `WebApi.Infrastructure.Data` onde temos as referências ao `EntityFramework`.
-- Tabmém foi preciso instalar o pacote `Microsoft.EntityFrameworkCore.Design` em `WebApi.Services.Api`
+- ~~Tabmém foi preciso instalar o pacote `Microsoft.EntityFrameworkCore.Design` em `WebApi.Services.Api`~~
 
 Executar o domando para aplicar as Migrações no banco de dados:
 
